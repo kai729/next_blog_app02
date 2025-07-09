@@ -7,6 +7,7 @@ import { useUpdatePost } from "../hooks/usePosts";
 import MDEditor from "@uiw/react-md-editor";
 import "@uiw/react-md-editor/markdown-editor.css";
 import "@uiw/react-markdown-preview/markdown.css";
+import styles from "./PostEdit.module.css";
 import { TextField, Button, Box, Snackbar, Alert, Typography, CircularProgress } from "@mui/material";
 
 const MotionButton = motion(Button);
@@ -152,23 +153,23 @@ const PostEdit = () => {
   }
 
   return (
-    <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4 }}>
-      <Typography variant="h4" component="h1" gutterBottom>
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.4 }}
+      className={styles.editContainer}
+    >
+      <Typography variant="h4" component="h1" gutterBottom className={styles.editTitle}>
         記事を編集
       </Typography>
 
       {submitError && (
-        <Alert severity="error" sx={{ mb: 2 }}>
+        <Alert severity="error" className={styles.editError}>
           {submitError instanceof Error ? submitError.message : "保存に失敗しました。"}
         </Alert>
       )}
 
-      <Box
-        component="form"
-        onSubmit={handleSubmit}
-        noValidate
-        sx={{ display: "flex", flexDirection: "column", gap: 3 }}
-      >
+      <Box component="form" onSubmit={handleSubmit} noValidate className={styles.editForm}>
         <TextField
           id="title-input"
           name="title"
@@ -181,9 +182,16 @@ const PostEdit = () => {
 
         <MDEditor value={body} onChange={(value) => setBody(value || "")} />
 
-        <Typography variant="h6">本文用画像アップロード</Typography>
+        <Typography variant="h6" className={styles.sectionTitle}>
+          本文用画像アップロード
+        </Typography>
         <input type="file" accept="image/*" onChange={handleBodyFileChange} />
-        <Button variant="outlined" onClick={handleBodyUpload} disabled={!bodyFile || bodyUploading} sx={{ ml: 2 }}>
+        <Button
+          variant="outlined"
+          onClick={handleBodyUpload}
+          disabled={!bodyFile || bodyUploading}
+          className={styles.uploadButton}
+        >
           {bodyUploading ? "アップロード中..." : "アップロード"}
         </Button>
 
@@ -196,41 +204,36 @@ const PostEdit = () => {
           fullWidth
         />
 
-        <Typography variant="h6">サムネイル画像アップロード</Typography>
+        <Typography variant="h6" className={styles.sectionTitle}>
+          サムネイル画像アップロード
+        </Typography>
         <input type="file" accept="image/*" onChange={handleFileChange} />
-        <Button variant="outlined" onClick={handleUpload} disabled={!selectedFile || uploading} sx={{ ml: 2 }}>
+        <Button
+          variant="outlined"
+          onClick={handleUpload}
+          disabled={!selectedFile || uploading}
+          className={styles.uploadButton}
+        >
           {uploading ? "アップロード中..." : "アップロード"}
         </Button>
 
         {thumbnailUrl && (
-          <Box sx={{ mt: 2, position: "relative", display: "inline-block" }}>
+          <Box className={styles.thumbnailWrapper}>
             <Typography>サムネイル画像プレビュー:</Typography>
-            <img
-              src={thumbnailUrl}
-              alt="サムネイル"
-              style={{ maxWidth: "100%", height: "auto", borderRadius: "8px" }}
-            />
+            <img src={thumbnailUrl} alt="サムネイル" className={styles.thumbnailImage} />
             <Button
               variant="outlined"
               size="small"
               color="error"
               onClick={() => setThumbnailUrl("")}
-              sx={{
-                position: "absolute",
-                top: 0,
-                right: 0,
-                minWidth: "auto",
-                px: 1,
-                py: 0,
-                lineHeight: 1,
-              }}
+              className={styles.removeThumbnailBtn}
             >
               ✕
             </Button>
           </Box>
         )}
 
-        <Box sx={{ display: "flex", gap: 2 }}>
+        <Box className={styles.buttonGroup}>
           <MotionButton
             variant="contained"
             color="primary"

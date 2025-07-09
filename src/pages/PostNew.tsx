@@ -127,20 +127,34 @@ const PostNew = () => {
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -20 }}
       transition={{ duration: 0.4, ease: "easeInOut" }}
+      className="post-create"
     >
-      <Typography variant="h4" component="h1" gutterBottom>
+      <Typography variant="h4" component="h1" gutterBottom className="post-create__title">
         新規投稿
       </Typography>
 
       {error && (
-        <Alert severity="error" sx={{ mb: 2 }}>
+        <Alert severity="error" sx={{ mb: 2 }} className="post-create__error">
           {error}
         </Alert>
       )}
 
-      <Box component="form" onSubmit={handleSubmit} sx={{ display: "flex", flexDirection: "column", gap: 3 }}>
-        <TextField label="タイトル" value={title} onChange={(e) => setTitle(e.target.value)} required fullWidth />
-        <MDEditor value={content} onChange={(value) => setContent(value || "")} />
+      <Box
+        component="form"
+        onSubmit={handleSubmit}
+        sx={{ display: "flex", flexDirection: "column", gap: 3 }}
+        className="post-create__form"
+      >
+        <TextField
+          label="タイトル"
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+          required
+          fullWidth
+          className="post-create__title-input"
+        />
+
+        <MDEditor value={content} onChange={(value) => setContent(value || "")} className="post-create__md-editor" />
 
         <TextField
           label="タグ（カンマ区切り）"
@@ -148,25 +162,39 @@ const PostNew = () => {
           onChange={(e) => setTags(e.target.value)}
           placeholder="React, TypeScript, UI"
           fullWidth
+          className="post-create__tags-input"
         />
 
-        {/* サムネイルアップロード */}
-        <Typography variant="h6">サムネイル画像アップロード</Typography>
-        <input type="file" accept="image/*" onChange={handleThumbnailChange} />
-        <Button variant="outlined" onClick={handleUploadThumbnail} disabled={!thumbnailFile || uploadingThumbnail}>
+        <Typography variant="h6" className="post-create__subtitle">
+          サムネイル画像アップロード
+        </Typography>
+        <input type="file" accept="image/*" onChange={handleThumbnailChange} className="post-create__file" />
+        <Button
+          variant="outlined"
+          onClick={handleUploadThumbnail}
+          disabled={!thumbnailFile || uploadingThumbnail}
+          className="post-create__thumb-btn"
+        >
           {uploadingThumbnail ? "アップロード中..." : "アップロード"}
         </Button>
+
         {thumbnailUrl && (
-          <Box sx={{ mt: 2 }}>
+          <Box sx={{ mt: 2 }} className="post-create__thumb-preview">
             <Typography>アップロード済みサムネイル:</Typography>
             <img src={thumbnailUrl} alt="サムネイル画像" style={{ maxWidth: "100%", height: "auto" }} />
           </Box>
         )}
 
-        {/* 本文画像アップロード */}
-        <Typography variant="h6">本文画像アップロード</Typography>
-        <input type="file" accept="image/*" onChange={handleBodyImageChange} />
-        <Button variant="outlined" onClick={handleUploadBodyImage} disabled={!bodyImageFile || uploadingBodyImage}>
+        <Typography variant="h6" className="post-create__subtitle">
+          本文画像アップロード
+        </Typography>
+        <input type="file" accept="image/*" onChange={handleBodyImageChange} className="post-create__file" />
+        <Button
+          variant="outlined"
+          onClick={handleUploadBodyImage}
+          disabled={!bodyImageFile || uploadingBodyImage}
+          className="post-create__bodyimg-btn"
+        >
           {uploadingBodyImage ? "アップロード中..." : "本文に挿入"}
         </Button>
 
@@ -177,11 +205,12 @@ const PostNew = () => {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
           disabled={isPending}
+          className="post-create__submit-btn"
         >
           {isPending ? "投稿中..." : "投稿"}
         </MotionButton>
 
-        <Link to="/" className={styles.backLink}>
+        <Link to="/" className="post-create__back-link">
           ← 戻る
         </Link>
       </Box>

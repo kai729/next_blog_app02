@@ -59,7 +59,7 @@ export default function Layout() {
           width: "100%",
           display: "flex",
           justifyContent: "center",
-          backgroundColor: "#e3f2fd",
+          backgroundColor: "#ffffff",
           overflowY: "auto",
           padding: "40px 4%",
         }}
