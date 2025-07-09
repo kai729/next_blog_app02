@@ -1,0 +1,41 @@
+.sidebarContainer {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+
+/* ナビゲーションリンクの共通スタイル */
+.navItem {
+  display: block;
+  width: 100%;
+  padding: 8px 16px;
+  color: #333;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background 0.2s ease;
+  font-size: 0.95rem;
+}
+
+.navItem:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* アクティブなリンクのスタイル */
+
+.navItem.active {
+  color: #1976d2;
+  background-color: rgba(25, 118, 210, 0.1);
+  font-weight: bold;
+}
+
+/* セクションタイトル（タグ一覧、アーカイブなど） */
+.sectionTitle {
+  font-size: 0.85rem;
+  font-weight: bold;
+  margin: 16px 0 8px;
+  color: #555;
+  padding-left: 16px;
+}

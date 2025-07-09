@@ -1,0 +1,141 @@
+/* ========== ボタン共通スタイル ========== */
+.commonButton {
+  padding: 0.5em 1.2em;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.editButton {
+  background-color: #3498db;
+}
+
+.editButton:hover {
+  background-color: #2980b9;
+}
+
+.deleteButton {
+  background-color: #e53935;
+}
+
+.deleteButton:hover {
+  background-color: #d32f2f;
+}
+
+.backLink {
+  display: inline-block;
+  margin-top: 1.5em;
+  color: #555;
+  text-decoration: underline;
+  transition: color 0.3s;
+}
+
+.backLink:hover {
+  color: #000;
+}
+
+.papar
+
+/* ========== マークダウンスタイル ========== */
+
+.markdownWrapper {
+  padding: 0 16px;
+  max-width: 100%;
+  word-break: break-word;
+}
+.markdownWrapper pre {
+  background-color: #272822;
+  color: #f8f8f2;
+  padding: 16px;
+  border-radius: 8px;
+  overflow-x: auto;
+  margin-bottom: 16px;
+}
+
+.markdownWrapper code {
+  font-family: "Fira Code", "Menlo", "Monaco", "Courier New", monospace;
+  font-size: 0.95rem;
+}
+
+/* Markdown見出し調整 */
+.markdownWrapper h1 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.markdownWrapper h2 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-top: 1.2rem;
+  margin-bottom: 0.8rem;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 0.2rem;
+}
+
+.markdownWrapper h3 {
+  font-size: 1.4rem;
+  font-weight: bold;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  border-top: rgb(88, 86, 86) 2px solid;
+  border-bottom: rgb(88, 86, 86) 2px solid;
+  padding: 4px 0 0 4px;
+}
+
+.markdownWrapper p {
+  line-height: 1.8;
+  margin-bottom: 1rem;
+}
+
+.markdownWrapper ul,
+.markdownWrapper ol {
+  padding-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+/* ========== スケルトンスタイル ========== */
+.skeletonWrapper {
+  padding: 24px;
+  animation: pulse 1.5s infinite ease-in-out;
+}
+
+.skeletonTitle {
+  width: 50%;
+  height: 28px;
+  background-color: #e0e0e0;
+  border-radius: 6px;
+  margin-bottom: 20px;
+}
+
+.skeletonBody {
+  width: 100%;
+  height: 100px;
+  background-color: #e0e0e0;
+  border-radius: 6px;
+  margin-bottom: 24px;
+}
+
+.skeletonButtons {
+  width: 40%;
+  height: 36px;
+  background-color: #d0d0d0;
+  border-radius: 6px;
+  margin-bottom: 24px;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}

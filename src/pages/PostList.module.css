@@ -1,0 +1,206 @@
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+.card_content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+  gap: 24px;
+}
+.card {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.2s ease;
+}
+
+.card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.postList {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.postList {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.postLink {
+  display: block;
+  border: 1px solid #ddd;
+  padding: 16px;
+  border-radius: 8px;
+  background: white;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  color: #333;
+  margin-bottom: 16px;
+  box-shadow: 5px 5px 5px #555;
+}
+.card h2 {
+  font-size: 28px;
+}
+
+.postLink:hover {
+  background: #f0f0f0;
+}
+
+.postTitle {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #0077cc;
+}
+
+.postBody {
+  color: #555;
+  margin-top: 8px;
+  font-size: 0.9rem;
+}
+
+.loading {
+  text-align: center;
+  padding: 2rem;
+  font-size: 1.25rem;
+  color: #555;
+}
+
+.error {
+  text-align: center;
+  padding: 2rem;
+  color: red;
+  font-weight: bold;
+}
+.spinner {
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #3182ce;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  animation: spin 1s linear infinite;
+  margin: 2rem auto;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.retryButton {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.5rem 1.2rem;
+  font-weight: 600;
+  background-color: #3182ce;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.retryButton:hover {
+  background-color: #2563eb;
+}
+.newPostButtonWrapper {
+  margin-bottom: 1rem;
+}
+
+.newPostButton {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background-color: #0070f3;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: transform 0.2s ease;
+}
+
+.newPostButton:hover {
+  background-color: #005bb5;
+}
+.cardItem {
+  width: 100%;
+}
+
+/* 🔹 スケルトンUI */
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/*スケルトンCSS追加*/
+.skeletonWrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 16px;
+  padding: 20px;
+  position: relative;
+}
+
+.skeletonCard {
+  background: #e0e0e0;
+  border-radius: 8px;
+  padding: 16px;
+  animation: pulse 1.5s infinite ease-in-out;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.skeletonTitle {
+  width: 70%;
+  height: 24px;
+  background: #ccc;
+  margin-bottom: 12px;
+  border-radius: 4px;
+}
+
+.skeletonBody {
+  width: 100%;
+  height: 16px;
+  background: #ddd;
+  border-radius: 4px;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
+  }
+  100% {
+    opacity: 1;
+  }
+}

@@ -1,0 +1,26 @@
+[
+  {
+    "userId": 1,
+    "id": 1,
+    "title": "はじめてのReact",
+    "body": "これはReactのチュートリアル記事です。"
+  },
+  {
+    "userId": 1,
+    "id": 2,
+    "title": "TypeScriptの基礎",
+    "body": "TypeScriptの基本文法について解説します。"
+  },
+  {
+    "userId": 1,
+    "id": 3,
+    "title": "JavaScriptの基礎",
+    "body": "JavaScriptの基本文法について解説します。"
+  },
+  {
+    "userId": 1,
+    "id": 4,
+    "title": "cssの基礎",
+    "body": "cssの基本文法について解説します。"
+  }
+]

@@ -1,0 +1,141 @@
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -moz-osx-font-smoothing: grayscale;
+}
+/* :root div {
+  padding: 8px;
+} */
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+h1 {
+  color: #333;
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+h2 {
+  color: #333;
+  font-size: 1.6em;
+  line-height: 1.1;
+}
+p {
+  font-size: 1rem;
+  color: #555;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  margin-top: 8px !important;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+.button,
+.link {
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+.button:hover,
+.link:hover {
+  transform: scale(1.03);
+  background-color: #f0f0f0;
+}
+form {
+  gap: 8px !important;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}
+
+body {
+  font-family: "Segoe UI", sans-serif;
+  background-color: #ebe8e8;
+  color: #333;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 40px auto;
+}
+
+h1 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  text-align: center !important;
+}
+
+.post-card {
+  background-color: white;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  transition: transform 0.1s ease-in;
+}
+
+.post-card:hover {
+  transform: scale(1.01);
+}
+
+.post-title {
+  font-size: 1.3rem;
+  color: #0077cc;
+  margin-bottom: 10px;
+  text-decoration: none;
+}
+
+.post-title:hover {
+  text-decoration: underline;
+}
+
+.post-body {
+  color: #555;
+}
+
+.back-link {
+  display: inline-block;
+  margin-top: 20px;
+  color: #0077cc;
+  text-decoration: none;
+}
+
+.back-link:hover {
+  text-decoration: underline;
+}
