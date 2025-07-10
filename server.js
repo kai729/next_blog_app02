@@ -7,7 +7,7 @@ const postsRouter = require("./src/routes/posts");
 const app = express();
 
 // ✅ CORSをルートやJSONパースより前に設定
-const allowedOrigins = ["https://modern-my-blog-app.onrender.com", "http://localhost:5173"];
+const allowedOrigins = ["https://next_blog_app02.onrender.com", "http://localhost:5173"];
 app.use(
   cors({
     origin: function (origin, callback) {
@@ -35,7 +35,7 @@ app.use(express.json());
 app.use((req, res, next) => {
   res.setHeader(
     "Content-Security-Policy",
-    "default-src 'self'; connect-src 'self' https://modern-my-blog-app.onrender.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://www.gstatic.com; script-src 'self'"
+    "default-src 'self'; connect-src 'self' https://next_blog_app02.onrender.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://www.gstatic.com; script-src 'self'"
   );
   next();
 });
