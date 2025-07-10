@@ -8,24 +8,28 @@ const archivesRouter = require("./routes/archives");
 
 const app = express();
 
-// ====== ミドルウェア ======
+// CORS（開発時のみ）
 app.use(cors());
+
+// 圧縮
 app.use(compression());
+
+// JSON
 app.use(express.json());
 
-// ====== APIルーティング（上に持ってくる！） ======
+// ✅ ここで API を先に定義（重要）
 app.use("/api/posts/archives", archivesRouter);
 app.use("/api/posts", postsRouter);
 
-// ====== フロントエンド（Viteビルド成果物） ======
-app.use(express.static(path.join(__dirname, "../dist")));
+// ✅ 本番環境でのみ静的ファイルを返すようにする（←これがローカルエラー防止）
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(__dirname, "../dist")));
 
-// ====== SPAルーティング対応（React Router 用） ======
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "../dist/index.html"));
-});
+  app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "../dist/index.html"));
+  });
+}
 
-// ====== サーバー起動 ======
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
