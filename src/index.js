@@ -3,6 +3,7 @@ const cors = require("cors");
 const path = require("path");
 const compression = require("compression"); // 追加
 const postsRouter = require("./routes/posts");
+const archivesRouter = require("./routes/archives");
 
 const app = express();
 
@@ -17,6 +18,7 @@ app.use(express.json());
 
 // APIルーティング
 app.use("/api/posts", postsRouter);
+app.use("/api/posts/archives", archivesRouter);
 
 // =======================
 // 🔽 ここから統合デプロイ対応
