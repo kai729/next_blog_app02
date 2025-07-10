@@ -8,7 +8,7 @@ export const useMonthlyArchives = () => {
   return useQuery({
     queryKey: ["archives", "monthly"],
     queryFn: async () => {
-      const { data } = await axios.get(`${API_BASE_URL}/posts/archives/monthly`);
+      const { data } = await axios.get(`${API_BASE_URL}/archives/monthly`);
       return data;
     },
   });
@@ -18,7 +18,7 @@ export const useTagArchives = () => {
   return useQuery({
     queryKey: ["archives", "tags"],
     queryFn: async () => {
-      const { data } = await axios.get(`${API_BASE_URL}/posts/archives/tags`);
+      const { data } = await axios.get(`${API_BASE_URL}/archives/tags`);
       return data;
     },
   });
