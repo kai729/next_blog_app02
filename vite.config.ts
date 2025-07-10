@@ -13,6 +13,7 @@ export default defineConfig({
     },
   },
   build: {
-    sourcemap: true, // ← これをここに追加！
+    sourcemap: true,
+    outDir: "dist",
   },
 });
