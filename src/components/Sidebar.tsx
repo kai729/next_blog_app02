@@ -1,5 +1,4 @@
-import { List, ListItem, Divider, Typography, ListItemButton } from "@mui/material";
-import { NavLink } from "react-router-dom";
+import { List, ListItem, Divider, Typography } from "@mui/material";
 import styles from "./Sidebar.module.css";
 import CustomNavLink from "./CustomNavLink";
 import Profile from "./Profile";
@@ -12,8 +11,6 @@ type SidebarProps = {
 export default function Sidebar({ onLinkClick }: SidebarProps) {
   const { data: monthlyData, isLoading: isLoadingMonthly } = useMonthlyArchives();
   const { data: tagData, isLoading: isLoadingTags } = useTagArchives();
-
-  <CustomNavLink to="/posts/new" onClick={onLinkClick} className={styles.navItem} />;
 
   return (
     <div className={styles.sidebarContainer}>
@@ -44,14 +41,17 @@ export default function Sidebar({ onLinkClick }: SidebarProps) {
       <Typography className={styles.sectionTitle}>タグ一覧</Typography>
       <List>
         {isLoadingTags && <ListItem>読み込み中...</ListItem>}
-        {tagData &&
+        {Array.isArray(tagData) ? (
           tagData.map((item) => (
             <ListItem disablePadding key={item.name}>
               <CustomNavLink to={`/tags/${item.name}`} onClick={onLinkClick} className={styles.navItem}>
                 {item.name}（{item.count}）
               </CustomNavLink>
             </ListItem>
-          ))}
+          ))
+        ) : (
+          <ListItem>タグデータがありません</ListItem>
+        )}
       </List>
 
       <Divider sx={{ my: 2 }} />
@@ -59,14 +59,17 @@ export default function Sidebar({ onLinkClick }: SidebarProps) {
       <Typography className={styles.sectionTitle}>アーカイブ（月別）</Typography>
       <List>
         {isLoadingMonthly && <ListItem>読み込み中...</ListItem>}
-        {monthlyData &&
+        {Array.isArray(monthlyData) ? (
           monthlyData.map((item) => (
             <ListItem disablePadding key={item.month}>
               <CustomNavLink to={`/archives/${item.month}`} onClick={onLinkClick} className={styles.navItem}>
                 {item.month}（{item.count}）
               </CustomNavLink>
             </ListItem>
-          ))}
+          ))
+        ) : (
+          <ListItem>アーカイブデータがありません</ListItem>
+        )}
       </List>
     </div>
   );
