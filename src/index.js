@@ -27,7 +27,7 @@ app.use(express.static(path.join(__dirname, "../dist")));
 
 // SPA対応：その他のルートは全てindex.htmlを返す（Reactのルーティング対応）
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "../dist/index.html"));
+  res.sendFile(path.join(__dirname, "../dist", "index.html"));
 });
 
 // =======================
