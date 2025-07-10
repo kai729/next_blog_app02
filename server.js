@@ -42,9 +42,9 @@ app.use((req, res, next) => {
 
 // ===== API & 静的ファイル =====
 app.use("/api/posts", postsRouter);
-app.use(express.static(path.join(__dirname, "dist")));
+app.use(express.static(path.join(__dirname, "../dist")));
 app.get("*", (req, res) => {
-  res.sendFile(path.resolve(__dirname, "dist", "index.html"));
+  res.sendFile(path.resolve(__dirname, "../dist", "index.html"));
 });
 
 // ===== エラーハンドリング =====
